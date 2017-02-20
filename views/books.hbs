@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="flex col s12 m12 l12 flex spaceAround">
+
+    <h1 class="" >BOOKS</h1>
+    <a href="/books/add"class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Add a Book</a>
+
+
+  </div>
+</div>
+  {{#each data}}
+  <div class="row">
+    <div class="col s3">  <!-- Add author/book -->
+    </div>
+
+    <div class="col s9">  <!-- Card layout  -->
+      <div class="row">
+        <div class="col s3">     <!-- Picture -->
+          <div >
+            <img id="pic_holder"src="{{this.cover}}" alt="this is a picture of the cover of {{this.title}}">
+          </div>
+        </div>              <!-- Picture -->
+        <div class="col s9">    <!-- Data  -->
+          <div class="book_edit_navbar">
+            <h4>"Book"</h4>
+            <div class="two_nav_bars">
+              <a id="edit_this_book" href="/books/{{id}}/book-edit">Edit</a>
+              <a id="remove_this_book{{this.id}}" href="/books/{{id}}/book-delete">Remove{{this.id}}</a>
+            </div>
+          </div>
+          <h3 id="books_title{{this.id}}">{{this.title}}</h3>
+          <p id = "books_author">By this author and that author</p>
+          <p id= "books_genre">{{this.genre}}</p>
+          <p id= "books_desc">{{this.description}}</p>
+        </div>             <!-- Data  -->
+
+
+
+      </div>
+
+    </div>   <!-- closes card layout  -->
+  </div>
+
+{{/each}}

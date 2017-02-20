@@ -1,0 +1,20 @@
+<h1>{{title}}</h1>
+
+
+<form id="edit_book_form" action="/books/{{id}}?_method=PUT" method="post">
+
+    Title: <input value="{{title}}" id="title_of_book" type="text" name="title" required/>
+    Genre: <input value="{{genre}}" id="genre_of_book" type="text" name="genre" required/>
+    Cover Image URL: <input value="{{cover}}" id="cover_url_of_book" type="url" name="cover_url" required/>
+    Description of Book: <input value="{{description}}" id="description_of_book" type="text" name="description" required/>
+
+
+    <button id="button_add_book"  class="btn waves-effect waves-light indigo" type="submit" name="action">Update
+        <i class="material-icons right">send</i>
+    </button>
+
+</form>
+  <div class="goBack">
+    <a href="/books" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to book list</a>
+    <a href="/" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to home page</a>
+  </div>

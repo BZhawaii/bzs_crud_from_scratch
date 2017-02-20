@@ -1,0 +1,38 @@
+{{title}}
+
+<div class="row">
+  <div class="col s3">  <!-- Add author/book -->
+
+  </div>
+
+  <div class="col s9">  <!-- Card layout  -->
+    <div class="row">
+      <div class="col s3">     <!-- Picture -->
+        <div >
+          <img id="pic_holder"src="{{cover}}" alt="this is a picture of the cover of {{title}}">
+        </div>
+      </div>              <!-- Picture -->
+      <div class="col s9">    <!-- Data  -->
+        <div class="book_edit_navbar">
+          <h4>Title: {{title}}</h4>
+          <div class="two_nav_bars">
+            <a id="edit_book" href="/books/{{id}}/book-edit">Edit</a>
+           </div>
+        </div>
+        <h3>Genre:  {{genre}}</h3>
+        <p>Description:  {{description}}</p>
+      </div>             <!-- Data  -->
+
+
+
+    </div>
+
+  </div>   <!-- closes card layout  -->
+</div>
+
+<div class="goBack">
+  <a href="/books" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to book list</a>
+  <a href="/" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to home page</a>
+
+
+</div>

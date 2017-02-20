@@ -1,0 +1,40 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+
+#pic_holder {
+  height: 25vh;
+
+}
+
+.book_edit_navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex {
+  display: inline-flex;
+
+}
+
+.spaceAround {
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 5px solid black;
+}
+
+.bufferBar {
+  margin-bottom: 30px;
+  background-color: none;
+}
+
+.goBack {
+  padding-top: 20px;
+}
