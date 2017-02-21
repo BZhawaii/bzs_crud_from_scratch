@@ -1,4 +1,5 @@
 // Update with your config settings.
+require('dotenv').config();
 
 module.exports = {
 
@@ -7,7 +8,7 @@ module.exports = {
     connection: 'postgres://localhost/reads-db'
   },
   production: {
-    client: 'postrgresql',
+    client: 'postgresql',
     connection: process.env.DATABASE_URL + '?ssl=true'
   }
 
