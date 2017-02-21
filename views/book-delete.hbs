@@ -1,11 +1,13 @@
-{{title}}
+<div class="spaceAround">
+  <h1>Delete book</h1>
+</div>
 
-<div class="row">
-  <div class="col s3">  <!-- Add author/book -->
+<div class="row spaceAboveThis">
+  <div class="col s1">  <!-- Add author/book -->
 
   </div>
 
-  <div class="col s9">  <!-- Card layout  -->
+  <div class="col s11">  <!-- Card layout  -->
     <div class="row">
       <div class="col s3">     <!-- Picture -->
         <div >
@@ -16,7 +18,6 @@
         <div class="book_edit_navbar">
           <h4>Title: {{title}}</h4>
           <div class="two_nav_bars">
-            <a id="edit_book" href="/books/{{id}}/book-edit">Edit</a>
 
            </div>
         </div>
@@ -38,5 +39,7 @@
 </form>
   <div class="goBack">
     <a href="/books" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to book list</a>
+    <a href="/authors" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to authors list</a>
+
     <a href="/" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to home page</a>
   </div>

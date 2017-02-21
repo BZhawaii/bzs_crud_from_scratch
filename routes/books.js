@@ -17,10 +17,10 @@ router.get('/', function(req, res) {
     }) //this closes then
 }); //this GET books listing
 
-// GO TO new book form.
+// GO TO add book form.
 router.get('/add', function(req, res, next) {
   res.render('add-book');
-}); //this closes GO TO new book form.
+}); //this closes GO TO add book form.
 
 
 function validForm(book) {

@@ -1,0 +1,25 @@
+<div class="spaceAround">
+  <h1>Add author</h1>
+</div>
+
+
+<form class="spaceAboveThis" id="add_author_form" action="/author" method="post">
+
+    First Name: <input id="first_name_author" type="text" name="first_name" required/>
+    Last Name: <input id="last_name_author" type="text" name="last_name" required/>
+    Portrait Image URL: <input id="portrait_url_author" type="url" name="portrait" required/>
+    Biography: <input id="bio_author" type="text" name="bio" required/>
+
+
+    <button id="button_add_author"  class="btn waves-effect waves-light orange" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+    </button>
+</form>
+  <div class="goBack">
+    <a href="/books" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to books list</a>
+    <a href="/authors" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to authors list</a>
+
+    <a href="/" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to home page</a>
+
+
+  </div>

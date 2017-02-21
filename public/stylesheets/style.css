@@ -30,6 +30,10 @@ a {
   border-bottom: 5px solid black;
 }
 
+.spaceAboveThis {
+  margin-top: 10vh;
+}
+
 .bufferBar {
   margin-bottom: 30px;
   background-color: none;

@@ -2,29 +2,29 @@
   <div class="flex col s12 m12 l12 flex spaceAround">
 
     <h1 class="" >BOOKS</h1>
-    <a href="/books/add"class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Add a Book</a>
+    <a href="/books/add" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Add a Book</a>
 
 
   </div>
 </div>
   {{#each data}}
   <div class="row">
-    <div class="col s3">  <!-- Add author/book -->
+    <div class="col s2">  <!-- Add author/book -->
     </div>
 
-    <div class="col s9">  <!-- Card layout  -->
+    <div class="col s10">  <!-- Card layout  -->
       <div class="row">
         <div class="col s3">     <!-- Picture -->
           <div >
-            <img id="pic_holder"src="{{this.cover}}" alt="this is a picture of the cover of {{this.title}}">
+            <a href="/books/{{this.id}}"><img id="pic_holder"src="{{this.cover}}" alt="this is a picture of the cover of {{this.title}}"></a>
           </div>
         </div>              <!-- Picture -->
         <div class="col s9">    <!-- Data  -->
           <div class="book_edit_navbar">
             <h4>"Book"</h4>
             <div class="two_nav_bars">
-              <a id="edit_this_book" href="/books/{{id}}/book-edit">Edit</a>
-              <a id="remove_this_book{{this.id}}" href="/books/{{id}}/book-delete">Remove{{this.id}}</a>
+              <a class="waves-effect orange btn-large" href="/books/{{id}}/book-edit">Edit</a>
+              <a class="waves-effect red btn-large" href="/books/{{id}}/book-delete">Remove</a>
             </div>
           </div>
           <h3 id="books_title{{this.id}}">{{this.title}}</h3>
