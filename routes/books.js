@@ -10,7 +10,6 @@ router.get('/', function(req, res) {
     .select('id','title','description', 'genre', 'cover')
     .orderBy('title', 'asc')
     .then(function(ans) {
-      console.log("HERE ",ans);
       res.render("books", {
         data: ans
       });
@@ -19,7 +18,14 @@ router.get('/', function(req, res) {
 
 // GO TO add book form.
 router.get('/add', function(req, res, next) {
-  res.render('add-book');
+  knex('authors')
+    .select('last_name', 'first_name', 'id')
+    .orderBy('last_name', 'asc')
+    .then(function(ans) {
+      res.render('add-book', {
+        data: ans
+      });
+    })
 }); //this closes GO TO add book form.
 
 
@@ -33,6 +39,7 @@ function validForm(book) {
 // GO TO edit form
 router.get('/:id/book-edit', function(req, res) {
   var id = req.params.id;
+  console.log("Hello, I'm in edit form", id);
   if(typeof id != 'undefined') {
     knex('books')
       .select()
@@ -73,20 +80,21 @@ router.get('/:id', function(req, res) {
 
 // Update the books database
 router.put('/:id', function(req, res) {
-  console.log('This is the req.body in the put', req.body);
+  var id = req.params.id;
+  console.log('This is the req.body in the put', req.body, id);
   if(validForm(req.body)) {
     var bodyObj = {
       title: req.body.title,
       genre: req.body.genre,
       cover: req.body.cover_url,
       description: req.body.description
-    }
+    };
+
     knex('books')
-      .where('id', req.params.id)
-      .update(bodyObj, 'id')
-      .then(function(ans) {
-        var id = ans[0];
-        res.redirect(`/books/${id}`);
+      .where('id', id)
+      .update(bodyObj)
+      .then(function() {
+        res.redirect(`/books`);
       });  //closes then
   }; //closes if
 }); //closes Update the books database
@@ -104,11 +112,19 @@ router.post('/', function(req, res) {
       cover: req.body.cover_url,
       description: req.body.description
     }; //closes obj
+      var authID = req.body.id;
     knex('books')
       .insert(bookObj, 'id')
       .then(function(ans) {
-        var id = ans[0];
-        res.redirect(`/books/${id}`);
+        var joinObj = {
+          book_id: ans[0],
+          author_id: authID
+        };
+        knex('book_author_join')
+          .insert(joinObj)
+          .then(function() {
+            res.redirect(`/books`);
+          })
       }) //closes then
   } else {
     res.status(500);

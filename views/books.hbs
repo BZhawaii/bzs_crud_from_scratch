@@ -8,7 +8,7 @@
   </div>
 </div>
   {{#each data}}
-  <div class="row">
+  <div class="row bottomUnderline">
     <div class="col s2">  <!-- Add author/book -->
     </div>
 
@@ -21,16 +21,15 @@
         </div>              <!-- Picture -->
         <div class="col s9">    <!-- Data  -->
           <div class="book_edit_navbar">
-            <h4>"Book"</h4>
             <div class="two_nav_bars">
               <a class="waves-effect orange btn-large" href="/books/{{id}}/book-edit">Edit</a>
               <a class="waves-effect red btn-large" href="/books/{{id}}/book-delete">Remove</a>
             </div>
           </div>
           <h3 id="books_title{{this.id}}">{{this.title}}</h3>
-          <p id = "books_author">By this author and that author</p>
-          <p id= "books_genre">{{this.genre}}</p>
-          <p id= "books_desc">{{this.description}}</p>
+          <p id="books_author">Author: </p>
+          <p id="books_genre">{{this.genre}}</p>
+          <p id="books_desc">{{this.description}}</p>
         </div>             <!-- Data  -->
 
 
@@ -38,6 +37,7 @@
       </div>
 
     </div>   <!-- closes card layout  -->
+
   </div>
 
 {{/each}}

@@ -28,11 +28,16 @@ a {
 .spaceAround {
   justify-content: space-around;
   align-items: center;
-  border-bottom: 5px solid black;
+  border-bottom: 10px solid #DCDCDC;
+}
+
+.bottomUnderline {
+  padding-top: 3rem;
+  border-bottom: 5px solid #DCDCDC;
 }
 
 .spaceAboveThis {
-  margin-top: 10vh;
+  margin-top: 5vh;
 }
 
 .bufferBar {
