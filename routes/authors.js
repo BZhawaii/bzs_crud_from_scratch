@@ -73,5 +73,43 @@ router.get('/:id', function(req, res) {
 }); //closes GO TO single author page
 
 
+// GO TO author-delete page
+router.get('/:id/author-delete', function(req, res) {
+  console.log("We are in author-delete");
+  var id = req.params.id;
+  if(typeof id != 'undefined') {
+    knex('authors')
+      .select()
+      .where('id', id)
+      .first()
+      .then(function(ans) {
+        console.log('This is a delete author', ans);
+        res.render('author-delete', ans);
+      }) //closes then
+  } else {
+    res.status(500);
+    res.render('error', {
+      message: 'Invalid id'
+    }); //closes res.render
+  }; //closes if else statement
+}); //closes GO TO author-delete page
+
+// DELETE a author
+router.delete('/:id', function(req, res) {
+  var id = req.params.id;
+  if(typeof id != 'undefined') {
+    knex('authors')
+      .where('id', id)
+      .del()
+      .then(function() {
+        res.redirect('/authors');
+      })
+  } else {
+    res.status(500);
+    res.render('error', {message: 'Invalid id'})
+  }//closes if
+}) //this closes DELETE a author
+
+
 
 module.exports = router;

@@ -1,36 +1,23 @@
 
+<div class="container spaceAboveThis">
 
-<div class="row spaceAboveThis">
-  <div class="col s1">  <!-- Add author/book -->
+  <div class="row">
 
-  </div>
-
-  <div class="col s9">  <!-- Card layout  -->
-    <div class="row">
-      <div class="col s3">     <!-- Picture -->
-        <div >
-          <img id="pic_holder"src="{{this.portrait}}" alt="this is a picture of the cover of {{this.last_name}}">
-        </div>
+      <div class="col s12 m4 l5">     <!-- Picture -->
+          <img id="pic_holder" src="{{this.portrait}}" alt="this is a picture of the cover of {{this.last_name}}">
       </div>              <!-- Picture -->
-      <div class="col s9">    <!-- Data  -->
-        <div class="book_edit_navbar">
-          <h4>"Book"</h4>
-          <div class="two_nav_bars">
-          </div>
-        </div>
+      <div class="col s12 m8 l7">    <!-- Data  -->
         <h3 id="authors_name{{this.id}}">{{this.first_name}}{{this.last_name}}</h3>
         <p id= "author_bio">{{this.bio}}</p>
       </div>             <!-- Data  -->
 
-
-
     </div>
+  </div>
 
-  </div>   <!-- closes card layout  -->
-</div>
+
 <div class="goBack">
   <a href="/books/{{id}}/book-edit" class="waves-effect orange btn-large">Edit</a>
-  <a href="/books/{{id}}/book-delete" class="waves-effect red btn-large">Delete</a>
+  <a href="/authors/{{id}}/author-delete" class="waves-effect red btn-large">Delete</a>
 </div>
 
 <div class="goBack">
