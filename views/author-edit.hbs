@@ -1,0 +1,25 @@
+<div class="spaceAround">
+  <h1>Edit author</h1>
+
+</div>
+
+
+<form class="spaceAboveThis" id="edit_author_form" action="/authors/{{id}}?_method=PUT" method="post">
+
+    First Name: <input value="{{first_name}}" id="first-name-author" type="text" name="first_name" required/>
+    Last Name: <input value="{{last_name}}" id="last-name-author" type="text" name="last_name" required/>
+    Portrait: <input value="{{portrait}}" id="portrait" type="url" name="portrait" required/>
+    Bio: <input value="{{bio}}" id="bio" type="text" name="bio" required/>
+
+
+    <button id="button_add_author"  class="btn waves-effect waves-light orange" type="submit" name="action">Update
+        <i class="material-icons right">send</i>
+    </button>
+
+</form>
+  <div class="goBack">
+    <a href="/books" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to book list</a>
+    <a href="/authors" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to authors list</a>
+
+    <a href="/" class="waves-effect indigo btn-large"><i class="material-icons right">library_add</i>Go back to home page</a>
+  </div>

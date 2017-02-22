@@ -3,6 +3,7 @@ var router = express.Router();
 
 var knex = require('../db/knex');
 
+
 // GET authors listing.
 router.get('/', function(req, res) {
   console.log("Hello, we're in authors.js");
@@ -16,6 +17,7 @@ router.get('/', function(req, res) {
     }) //this closes then
 }); //this GET authors listing
 
+
 // GO TO new author form.
 router.get('/add', function(req, res, next) {
   res.render('add-author');
@@ -26,6 +28,7 @@ function validForm(author) {
           typeof author.last_name == 'string' &&
           typeof author.bio == 'string';
 }; //closes validForm
+
 
 // CREATE a new author in database.
 router.post('/', function(req, res) {
@@ -51,6 +54,7 @@ router.post('/', function(req, res) {
   }; //closes if else
 }); //this closes CREATE a new author in database.
 
+
 //GO TO single author page
 router.get('/:id', function(req, res) {
   console.log('We are in single author by id');
@@ -71,6 +75,7 @@ router.get('/:id', function(req, res) {
     }); //closes res.render
   }; //closes if else statement
 }); //closes GO TO single author page
+
 
 
 // GO TO author-delete page
@@ -94,6 +99,49 @@ router.get('/:id/author-delete', function(req, res) {
   }; //closes if else statement
 }); //closes GO TO author-delete page
 
+
+// GO TO edit form
+router.get('/:id/author-edit', function(req, res) {
+  var id = req.params.id;
+  if(typeof id != 'undefined') {
+    knex('authors')
+    .select()
+    .where('id', id)
+    .first()
+    .then(function(ans) {
+      console.log('This is a single author', ans);
+      res.render('author-edit', ans);
+    }) //closes then
+  } else {
+    res.status(500);
+    res.render('error', {
+      message: 'Invalid id'
+    }); //closes res.render
+  }; //closes if else statement
+}); //closes GO TO edit form
+
+
+// Update the authors database
+router.put('/:id', function(req, res) {
+  console.log('This is the req.body in the put', req.body);
+  if(validForm(req.body)) {
+    var authObj = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      portrait: req.body.portrait,
+      bio: req.body.bio
+    }
+    knex('authors')
+      .where('id', req.params.id)
+      .update(authObj, 'id')
+      .then(function(ans) {
+        var id = ans[0];
+        res.redirect(`/authors/${id}`);
+      });  //closes then
+  }; //closes if
+}); //closes Update the authors database
+
+
 // DELETE a author
 router.delete('/:id', function(req, res) {
   var id = req.params.id;
@@ -109,7 +157,6 @@ router.delete('/:id', function(req, res) {
     res.render('error', {message: 'Invalid id'})
   }//closes if
 }) //this closes DELETE a author
-
 
 
 module.exports = router;
